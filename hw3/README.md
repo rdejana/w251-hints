@@ -45,5 +45,5 @@ And to exit virtualenv later:
     deactivate  # don't exit until you're done.
    ```
 
-The OpenCV example is available here.
+The OpenCV example is available [here](tx2camera.py).
 
