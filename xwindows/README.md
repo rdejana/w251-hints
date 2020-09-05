@@ -17,7 +17,7 @@ Once installed, start XQuartz and navigate to its prefernce menu (XQuartz, Prefe
 
 Quit XQuartz (XQuartz, Quit X11) and restart it.
 
-Once XQuartz is running, navigate to (or start via Applications, Terminal if not opened automatically) and enter the command `xhost +`.  Note, this window is different than the "normal" macOS termianl and will have the title xterm.
+Once XQuartz is running, navigate to (or start via Applications, Terminal if not opened automatically) and enter the command `xhost +`.  This command will need to be run every time your start XQuarz. Note, this window is different than the "normal" macOS termianl and will have the title xterm.
 
 ![xterm](images/xterm2.png)
 
