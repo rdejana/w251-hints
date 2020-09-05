@@ -24,4 +24,7 @@ Note, you may You may be asked to grant permission.  Grant it.
 
 ![permissions](images/permissionsSet.png)
 
+You'll need to quit and run the command again.  This time you should see something similar to:
+![myscreen](images/myscreen.png)
+
 
