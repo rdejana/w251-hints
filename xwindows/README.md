@@ -20,8 +20,14 @@ Quit XQuartz (XQuartz, Quit X11) and restart it.
 
 Once XQuartz is running, navigate to (or start via Applications, Terminal if not opened automatically) and enter the command `xhost +`.  Note, this window is different than the "normal" macOS termianl and will have the title xterm.
 
-![xterm](images/X11_Preferences.png)
+![xterm](images/xterm2.png)
 
+Leave the xterm window open and switch to your normal terminal/shell.  SSH into your Jetson device.  If you do not know the IP address of your workstation, run the command `who`.  In the example below, you can find the workstation IP by looking at the user logged into `pts/0`.  
+
+![xterm](images/nxssh.png)
+
+
+You'll now run the command `export DISPLAY=<workstationIP>:0` where <workstationIP> is your workstation's IP address.
 
 ## Ubuntu Linux
 
