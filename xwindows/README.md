@@ -36,4 +36,6 @@ With the DISPLAY variable correctly set, you can easily see the UI generated fro
 
 
 ## Ubuntu Linux
+This example covers Ubuntu 20 virtual machine (VM) running in VMWare Fusion and the steps will be similar for other distributions, either running in a VM or natively.  As a Berkeley student, you get a free VMware subscription [here](https://software.berkeley.edu/vmware). Download and install VMware Workstation (for Windows) or VMware Fusion (for macOS). 
 
+You may download Ubuntu 20 from [here](http://releases.ubuntu.com/focal/ubuntu-20.04.1-desktop-amd64.iso).  Instructions for creating a VM may be found as part of the [week1 homework](https://github.com/MIDS-scaling-up/v2/tree/master/week01/hw).
