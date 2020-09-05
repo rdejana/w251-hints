@@ -7,7 +7,10 @@ From your Jetson NX device
 - Check out the repository.  `git clone https://github.com/rdejana/w251`
 - Change to the directory `w251/hw3`
 - Building the Ubuntu container: ` docker build -t hw3:ubuntu -f Dockerfile.ubuntu . `
-- Building the Nvidia container: ` docker build -t hw3:ubuntu -f Dockerfile.nvidia . `
+- Building the Nvidia container: ` docker build -t hw3:nvidia -f Dockerfile.nvidia . `
 
 ## Running
-tbd
+These examples as designed to run interactively and require display
+
+- Ubuntu: `docker run -ti --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hw3:ubuntu bash`
+- Nvidia l4t: `docker run -ti --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hw3:nvidia bash`
