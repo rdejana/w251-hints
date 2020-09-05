@@ -4,7 +4,7 @@ RUN apt-get update
 RUN apt-get install -y \
     apt-transport-https \
     ca-certificates \
-    curl \
+    curl vim-tiny \
     gnupg-agent \
     software-properties-common
 RUN apt-key adv --fetch-key https://repo.download.nvidia.com/jetson/jetson-ota-public.asc
