@@ -17,9 +17,10 @@ Once Homebrew is installed, running the following command in a terminal to insta
 The following examples may be used to verify that GStream is running correctly.
 #### Stream Desktop
 This example will stream you desktop to a window running locally.
+
 In a terminal, run the command: `gst-launch-1.0 avfvideosrc capture-screen=true ! autovideosink`
 
-Note, you may You may be asked to grant permission.  Grant it.
+Note, you may asked to grant permission for terminal to record your screen.  Grant it.
 ![request](images/screen.png)
 
 ![permissions](images/permissionsSet.png)
@@ -27,4 +28,16 @@ Note, you may You may be asked to grant permission.  Grant it.
 You'll need to quit and run the command again.  This time you should see something similar to:
 ![myscreen](images/myscreen.png)
 
+#### Stream Camera
+This example will stream your camera to a local window.
+
+In a terminal, run the command: `gst-launch-1.0 autovideosrc device=/dev/video0 ! video/x-raw,width=1280,height=720 ! autovideosink`
+
+Note, you may  be asked to grant permission for terminal to access your camera.  Grant it.
+
+![permissions](images/camera.png)
+
+You'll need to quit and run the command again.  This time you should see something similar to:
+
+![working camera](images/runningcamera.png)
 
