@@ -35,12 +35,56 @@ With the DISPLAY variable correctly set, you can easily see the UI generated fro
 
 
 ## Ubuntu Linux
-This example covers Ubuntu 20 virtual machine (VM) running in VMWare Fusion and the steps will be similar for other distributions, either running in a VM or natively.  As a Berkeley student, you get a free VMware subscription [here](https://software.berkeley.edu/vmware). Download and install VMware Workstation (for Windows) or VMware Fusion (for macOS). 
+This example covers Ubuntu 20 virtual machine (VM) running in VMWare Fusion and the steps will be similar for other distributions, running with another virtualization program (e.g. VirtualBox) or natively.  As a Berkeley student, you get a free VMware subscription [here](https://software.berkeley.edu/vmware). Download and install VMware Workstation (for Windows) or VMware Fusion (for macOS). 
 
 You may download Ubuntu 20 from [here](http://releases.ubuntu.com/focal/ubuntu-20.04.1-desktop-amd64.iso).  Instructions for creating a VM may be found as part of the [week1 homework](https://github.com/MIDS-scaling-up/v2/tree/master/week01/hw).
 
 VM Configuration, the size of the disk should be 40GB absolutely minimum. Give the VM 2-4 cores and at least 4-8G of RAM.  In addition, you will want to make sure that your network is set to be `Bridged` as this gives your VM its own IP address.
 
 ![bridged](images/bridged.png)
+
+By default, Ubuntu 20 does not enable remote X and once your VM is running, you'll need to configure X to allow your Jetson to connect to it.  This is done by editing the file `/etc/gdm3/custom.conf` with the command `sudo vi /etc/gdm3/custom.conf` and adding `DisallowTCP=false` to the `[security]` section.
+
+``
+# GDM configuration storage
+#
+# See /usr/share/gdm/gdm.schemas for a list of available options.
+
+[daemon]
+# Uncomment the line below to force the login screen to use Xorg
+#WaylandEnable=false
+
+# Enabling automatic login
+#  AutomaticLoginEnable = true
+#  AutomaticLogin = user1
+
+# Enabling timed login
+#  TimedLoginEnable = true
+#  TimedLogin = user1
+#  TimedLoginDelay = 10
+
+[security]
+DisallowTCP=false
+
+``
+
+Reboot you VM.  
+
+Once you have logged back in, open a terminal and verify that X is listening via the command `netstat -a | grep tcp`.  You should see a line similar to 
+``
+tcp        0      0 0.0.0.0:x11             0.0.0.0:*               LISTEN   
+``
+If netstat is not installed, it can be installed with the command `sudo apt install net-tools`.
+
+SSH into your Jetson device.  If you do not know the IP address of your linux VM, run the command `who`.  In the example below, you can find the workstation IP by looking at the user logged into `pts/0`.  
+
+![terminal](images/vmwho.png)
+
+You'll now run the command `export DISPLAY=workstationIP:0`, replacing `workstationIP` with your workstation's IP address.  For example `export DISPLAY=192.168.1.238:0`.  To text your configration, run the command `xeyes` and you should now see a pair of eyes displayed on your desktop.
+![xeyes](images/linuxXeyes.png)
+
+With the DISPLAY variable correctly set, you can easily see the UI generated from a container. For example, using a container image build from the [HW3 hint](../hw3/README.md), the OpenCV window can easily be displayed on workstation.  
+
+
 
 
