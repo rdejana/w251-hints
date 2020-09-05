@@ -71,8 +71,38 @@ video-viewer /dev/video1 rtp://192.168.1.199:5000
 ```
 gst-launch-1.0 -v udpsrc port=5000 caps = "application/x-rtp, media=(string)video, clock-rate=(int)900, encoding-name=(string)H264, payload=(int)96" ! rtph264depay ! decodebin ! videoconvert ! autovideosink
 ```
-yo
+You'll see a window displayed on your mac displaying the output from your Jetson's camera.  Note, if you are logged into your Jetson's desktop, you'll see the same content displayed on a window there as well.
 
+![jetson camera](images/streamFromJetson.png)
+
+#### Stream Mac Camera to Jetson
+- From a terminal on your mac, running the following command, remembering to replace the IP with your Jetson's: 
+```
+gst-launch-1.0 autovideosrc device=/dev/video0 ! "video/x-raw"  ! videoscale ! videoconvert ! x264enc tune=zerolatency bitrate=500 speed-preset=superfast ! rtph264pay ! udpsink host=192.168.1.116 port=5000
+```
+- From a shell on the Jetson desktop, run the command: 
+```
+video-viewer --input-codec=h264 rtp://192.168.1.116:5000
+```
+You should see your mac's camera output displayed on your Jetson's desktop.
+
+
+#### Stream Mac Camera to Jetson and back to Mac for Display
+This example streams the camera from your mac, to the Jetson for processing, and finally displays it on your mac.
+
+- From a terminal on your mac, running the following command, remembering to replace the IP with your Jetson's: 
+```
+gst-launch-1.0 autovideosrc device=/dev/video0 ! "video/x-raw"  ! videoscale ! videoconvert ! x264enc tune=zerolatency bitrate=500 speed-preset=superfast ! rtph264pay ! udpsink host=192.168.1.116 port=5000
+```
+- From a shell on the Jetson desktop, run the command: 
+```
+video-viewer --input-codec=h264 rtp://192.168.1.116:5000 rtp://192.168.1.199:5000
+```
+- And finally, from a second terminal on your mac, run:
+```
+gst-launch-1.0 -v udpsrc port=5000 caps = "application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96" ! rtph264depay ! decodebin ! videoconvert ! autovideosink
+```
+And you'll see your mac's camera output displayed on your mac's desktop?  Why would you do this?  This would allow you to use your Jetson to transform the image in some way (or perform something like image classification or object detection) and then allow you to display the image back on your workstation.
 
 ### Streaming to OpenCV from macOS
 Coming at somepoint...
