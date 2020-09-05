@@ -10,7 +10,10 @@ From your Jetson NX device
 - Building the Nvidia container: ` docker build -t hw3:nvidia -f Dockerfile.nvidia . `
 
 ## Running
-These examples as designed to run interactively and require display
+These examples as designed to run interactively and require display.  The use of `--rm` when starting the container indicates that the container is to be deleted when stopped.
 
-- Ubuntu: `docker run -ti --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hw3:ubuntu bash`
-- Nvidia l4t: `docker run -ti --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hw3:nvidia bash`
+- To enable container to use X, run the following from a terminal on your Jetson: `xhost +` 
+- To run the Ubuntu image: `docker run -ti --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hw3:ubuntu bash`
+- to run the Nvidia l4t image: `docker run -ti --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hw3:nvidia bash`
+- Once started you'll have a shell prompt.  You can now run the python file cam.py with the command `python3 cam.py`.  You should now see an image displayed on your UI. Note, cam.py uses video device 0.  If your camera is using a different device, update the line `cap = cv2.VideoCapture(0)`, replacing 0 with the correct value.  When done, press `q` in the image window to quit.
+
