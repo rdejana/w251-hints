@@ -45,7 +45,7 @@ VM Configuration, the size of the disk should be 40GB absolutely minimum. Give t
 
 By default, Ubuntu 20 does not enable remote X and once your VM is running, you'll need to configure X to allow your Jetson to connect to it.  This is done by editing the file `/etc/gdm3/custom.conf` with the command `sudo vi /etc/gdm3/custom.conf` and adding `DisallowTCP=false` to the `[security]` section.
 
-``
+```
 # GDM configuration storage
 #
 # See /usr/share/gdm/gdm.schemas for a list of available options.
@@ -66,7 +66,7 @@ By default, Ubuntu 20 does not enable remote X and once your VM is running, you'
 [security]
 DisallowTCP=false
 
-``
+```
 
 Reboot you VM.  
 
