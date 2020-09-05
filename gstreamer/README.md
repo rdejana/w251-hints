@@ -18,6 +18,10 @@ The following examples may be used to verify that GStream is running correctly.
 #### Stream Desktop
 This example will stream you desktop to a window running locally.
 In a terminal, run the command: `gst-launch-1.0 avfvideosrc capture-screen=true ! autovideosink`
+
 Note, you may You may be asked to grant permission.  Grant it.
+![request](images/screen.png)
+
+![permissions](images/permissionsSet.png)
 
 
