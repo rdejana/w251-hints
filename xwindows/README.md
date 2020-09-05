@@ -27,7 +27,11 @@ Leave the xterm window open and switch to your normal terminal/shell.  SSH into 
 ![xterm](images/nxssh.png)
 
 
-You'll now run the command `export DISPLAY=<workstationIP>:0` where <workstationIP> is your workstation's IP address.
+You'll now run the command `export DISPLAY=workstationIP:0`, replacing `workstationIP` with your workstation's IP address.  For example `export DISPLAY=192.168.1.238:0`.  To text your configration, run the command `xeyes`.
+![xterm](images/startXeyes.png)
+
+and ou should now see a pair of eyes displayed on your desktop.
+![xterm](images/xeyes.png)
 
 ## Ubuntu Linux
 
