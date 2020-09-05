@@ -5,4 +5,17 @@ This section will share some approaches to using GStreamer to stream content to 
 
 
 ## MacOs
-The
+You'll be using Homebrew to install GStreamer.  As an alternative, you may following the intructions [here](https://gstreamer.freedesktop.org/documentation/installing/on-mac-osx.html?gi-language=c).
+
+### Installing Homebrew
+If Homebrew is not installed, follow the instructions on the [Homebrew website](https://brew.sh)
+
+### Installing GStreamer with brew
+Once Homebrew is installed, running the following command to install GStreamer `brew install gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav`.
+
+### Verification examples
+
+#### Stream Desktop
+adfasdf
+
+
