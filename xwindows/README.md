@@ -16,8 +16,11 @@ Once installed, start XQuartz and navigate to its prefernce menu (XQuartz, Prefe
 
 ![X11 Preferences](images/X11_Preferences.png)
 
-
 Quit XQuartz (XQuartz, Quit X11) and restart it.
+
+Once XQuartz is running, navigate to (or start via Applications, Terminal if not opened automatically) and enter the command `xhost +`.  Note, this window is different than the "normal" macOS termianl and will have the title xterm.
+
+![xterm](images/xterm.png)
 
 
 ## Ubuntu Linux
