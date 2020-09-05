@@ -14,7 +14,7 @@ You'll need to [download](https://www.xquartz.org) and install XQuartz.
 
 Once installed, start XQuartz and navigate to its prefernce menu (XQuartz, Preferences). Select the security tab and uncheck `Authenticate Connections` and check `Allow connections from network clients`.  
 
-![X11 Preferences](images/X11 Preferences.png)
+![X11 Preferences](images/X11_Preferences.png)
 
 
 Quit XQuartz (XQuartz, Quit X11) and restart it.
