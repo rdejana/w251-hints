@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 
 
-# the index depens on your setup.
+# the index depends on your camera setup and which one is your USB camera.
 cap = cv2.VideoCapture(0)
 
 while(True):
