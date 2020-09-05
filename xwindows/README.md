@@ -71,9 +71,11 @@ DisallowTCP=false
 Reboot you VM.  
 
 Once you have logged back in, open a terminal and verify that X is listening via the command `netstat -a | grep tcp`.  You should see a line similar to 
-``
+
+```
 tcp        0      0 0.0.0.0:x11             0.0.0.0:*               LISTEN   
-``
+```
+
 If netstat is not installed, it can be installed with the command `sudo apt install net-tools`.
 
 SSH into your Jetson device.  If you do not know the IP address of your linux VM, run the command `who`.  In the example below, you can find the workstation IP by looking at the user logged into `pts/0`.  
