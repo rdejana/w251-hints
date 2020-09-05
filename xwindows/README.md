@@ -85,6 +85,8 @@ You'll now run the command `export DISPLAY=workstationIP:0`, replacing `workstat
 
 With the DISPLAY variable correctly set, you can easily see the UI generated from a container. For example, using a container image build from the [HW3 hint](../hw3/README.md), the OpenCV window can easily be displayed on workstation.  
 
+![openCV](images/opencv.png)
+
 
 
 
