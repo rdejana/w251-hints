@@ -2,4 +2,6 @@
 This repository contains hints for w251.
 
 ## Table of Contents
- - [HW3](hw3/README.md)
+
+Homeworks
+ - [HW3](hw3/README.md): How to install and run OpenCV
