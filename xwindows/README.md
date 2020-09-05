@@ -23,14 +23,13 @@ Once XQuartz is running, navigate to (or start via Applications, Terminal if not
 
 Leave the xterm window open and switch to your normal terminal/shell.  SSH into your Jetson device.  If you do not know the IP address of your workstation, run the command `who`.  In the example below, you can find the workstation IP by looking at the user logged into `pts/0`.  
 
-![xterm](images/nxssh.png)
-
+![terminal](images/nxssh.png)
 
 You'll now run the command `export DISPLAY=workstationIP:0`, replacing `workstationIP` with your workstation's IP address.  For example `export DISPLAY=192.168.1.238:0`.  To text your configration, run the command `xeyes`.
-![xterm](images/startXeyes.png)
+![start xeyes](images/startXeyes.png)
 
 and you should now see a pair of eyes displayed on your desktop.
-![xterm](images/xeyes.png)
+![xeyes](images/xeyes.png)
 
 With the DISPLAY variable correctly set, you can easily see the UI generated from a container. For example, using a container image build from the [HW3 hint](../hw3/README.md), the OpenCV window can easily be displayed on workstation.  
 
@@ -39,3 +38,9 @@ With the DISPLAY variable correctly set, you can easily see the UI generated fro
 This example covers Ubuntu 20 virtual machine (VM) running in VMWare Fusion and the steps will be similar for other distributions, either running in a VM or natively.  As a Berkeley student, you get a free VMware subscription [here](https://software.berkeley.edu/vmware). Download and install VMware Workstation (for Windows) or VMware Fusion (for macOS). 
 
 You may download Ubuntu 20 from [here](http://releases.ubuntu.com/focal/ubuntu-20.04.1-desktop-amd64.iso).  Instructions for creating a VM may be found as part of the [week1 homework](https://github.com/MIDS-scaling-up/v2/tree/master/week01/hw).
+
+VM Configuration, the size of the disk should be 40GB absolutely minimum. Give the VM 2-4 cores and at least 4-8G of RAM.  In addition, you will want to make sure that your network is set to be `Bridged` as this gives your VM its own IP address.
+
+![bridged](images/bridged.png)
+
+
