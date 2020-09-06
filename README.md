@@ -8,4 +8,4 @@ Homeworks
  
  Display
  - Using [X Windows](xwindows/README.md)
- - Using [Gstreamer](gstreamer/README.md)
+ - Using [Gstreamer](gstreamer/README.md) and simple streaming
