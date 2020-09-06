@@ -3,8 +3,9 @@ GStreamer is a framework for creating streaming media applications and is part o
 
 This section will share some approaches to using GStreamer to stream content to and from your Jetson.  As with the X Windows section, the exmaples will cover macOS and Linux.
 
+Note of these examples are optimized.
 
-## MacOs
+## MacOS
 You'll be using Homebrew to install GStreamer.  As an alternative, you may following the intructions [here](https://gstreamer.freedesktop.org/documentation/installing/on-mac-osx.html?gi-language=c).
 
 ### Installing Homebrew
@@ -106,3 +107,44 @@ And you'll see your mac's camera output displayed on your mac's desktop?  Why wo
 
 ### Streaming to OpenCV from macOS
 Coming at somepoint...
+
+
+## Ubuntu Linux (VM)
+This examples will focu on streaming the camera to your linux desktop.  The use case for streaming from linux will be ignored due to a bug in VMWare Fusion where USB camera performance is exteremly slow.
+
+In this example, the sample linux IP address is 192.168.1.137.  Replace with your actual IP Address. 
+
+### Installing
+The default installation of Ubuntu 20 should already have GStreamer installed and you'll just make sure the plugins are installed.
+```
+sudo apt install gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
+```
+Note, if you want/need a full install, try
+```
+apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+```
+This includes some audio support which you may wish to not install.
+
+### Verifcation
+From you Ubuntu desktop, a simple verifcation test is to run:
+```
+gst-launch-1.0 videotestsrc ! autovideosink
+```
+You should see an image similar to 
+[linux test](images/linuxTest.png)
+
+
+#### Stream from Jetson
+- Start a shell on your Jetson, either from SSH or from the deskstop.  Running the following command, adjusting your video device as needed (this example as the USB camera as device 1) and replacing the sample IP with your workstations actual IP address.
+```
+video-viewer /dev/video1 rtp://192.168.1.137:5000
+```
+- From a terminal on your linux desktop, run the following command
+```
+gst-launch-1.0 -v udpsrc port=5000 caps = "application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96" ! rtph264depay ! decodebin ! videoconvert ! autovideosink
+```
+You'll see a window displayed on your mac displaying the output from your Jetson's camera.  Note, if you are logged into your Jetson's desktop, you'll see the same content displayed on a window there as well.
+
+![jetson camera](images/linuxStreamFromJetson.png)
+
+
