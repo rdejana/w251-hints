@@ -131,6 +131,7 @@ From you Ubuntu desktop, a simple verifcation test is to run:
 gst-launch-1.0 videotestsrc ! autovideosink
 ```
 You should see an image similar to 
+
 ![linux test](images/linuxTest.png)
 
 
