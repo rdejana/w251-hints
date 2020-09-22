@@ -1,4 +1,3 @@
-   0  background
    1  tench, Tinca tinca
    2  goldfish, Carassius auratus
    3  great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias

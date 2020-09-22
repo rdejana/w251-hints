@@ -20,9 +20,6 @@ preds = model.predict(x)
 # (one such list for each sample in the batch)
 print('Predicted:', decode_predictions(preds, top=3)[0])
 
-
-print("Result before saving:\n", decoded)
-
 times = []
 for i in range(20):
     start_time = time.time()

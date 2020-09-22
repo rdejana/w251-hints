@@ -36,6 +36,12 @@ import classify
 import tflite_runtime.interpreter as tflite
 import platform
 
+EDGETPU_SHARED_LIB = {
+  'Linux': 'libedgetpu.so.1',
+  'Darwin': 'libedgetpu.1.dylib',
+  'Windows': 'edgetpu.dll'
+}[platform.system()]
+
 
 def load_labels(path, encoding='utf-8'):
   """Loads labels from file (with or without index numbers).
@@ -63,6 +69,8 @@ def make_interpreter(model_file):
   return tflite.Interpreter(
       model_path=model_file,
       experimental_delegates=[
+          #tflite.load_delegate(EDGETPU_SHARED_LIB,
+          #                     {'device': device[0]} if device else {})
       ])
 
 
@@ -96,8 +104,8 @@ def main():
   classify.set_input(interpreter, image)
 
   print('----INFERENCE TIME----')
-  print('Note: The first inference may be slow because it includes',
-        'loading the model.')
+  print('Note: The first inference on Edge TPU is slow because it includes',
+        'loading the model into Edge TPU memory.')
   for _ in range(args.count):
     start = time.perf_counter()
     interpreter.invoke()

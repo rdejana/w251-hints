@@ -8,4 +8,5 @@ COPY *.py ./
 
 RUN mkdir images
 COPY images/* images/
+RUN chmod 700  *.py
 CMD bash
