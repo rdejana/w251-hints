@@ -28,6 +28,7 @@ imagenet_labels = np.array(open(labels_path).read().splitlines())
 pretrained_model = tf.keras.applications.MobileNet()
 result_before_save = pretrained_model(x)
 
+print(np.argsort(result_before_save))
 decoded = imagenet_labels[np.argsort(result_before_save)[0,::-1][:5]+1]
 
 print("Result before saving:\n", decoded)

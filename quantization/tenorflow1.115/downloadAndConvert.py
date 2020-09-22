@@ -8,8 +8,8 @@ import tensorflow.contrib.tensorrt as trt
 save_pb_dir = './models'
 model_fname = './models/model.h5'
 
-model = Net(weights='imagenet')
-
+#model = Net(weights='imagenet')
+model = tf.keras.applications.MobileNet()
 os.makedirs(save_pb_dir, exist_ok=True)
 
 # Save the h5 file to path specified.
