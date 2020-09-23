@@ -40,7 +40,7 @@ parser.add_argument("--network", type=str, default="inception-v4", help="pre-tra
 parser.add_argument("--camera", type=str, default="0", help="index of the MIPI CSI camera to use (e.g. CSI camera 0)\nor for VL42 cameras, the /dev/video device to use.\nby default, MIPI CSI camera 0 will be used.")
 parser.add_argument("--width", type=int, default=1280, help="desired width of camera stream (default is 1280 pixels)")
 parser.add_argument("--height", type=int, default=720, help="desired height of camera stream (default is 720 pixels)")
-parser.add_argument('--headless', action='store_true', default=(), help="run without display")
+parser.add_argument('--headless', action='store_true', default=True, help="run without display")
 
 is_headless = ["--headless"] if sys.argv[0].find('console.py') != -1 else [""]
 
