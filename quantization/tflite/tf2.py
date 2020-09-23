@@ -6,6 +6,7 @@ import collections
 import operator
 import tensorflow as tf
 import tensorflow_hub as hub
+import time
 
 Class = collections.namedtuple('Class', ['id', 'score'])
 
@@ -75,6 +76,16 @@ def runClass(classifier_url,image,runCount,k,threshold,height,width):
         pc = klass.id + offset
         print('%s: %.5f' % (imagenet_labels[pc],klass.score))
 
+    times = []
+    for i in range(20):
+        start_time = time.time()
+        result = probability_model.predict(theImage[np.newaxis, ...])
+        delta = (time.time() - start_time)
+        times.append(delta)
+    mean_delta = np.array(times).mean()
+    fps = 1 / mean_delta
+    print('average(sec):{:.2f},fps:{:.2f}'.format(mean_delta, fps))
+
     return
 
 
@@ -95,7 +106,7 @@ def main():
       '-t', '--threshold', type=float, default=0.0,
       help='Classification score threshold')
     parser.add_argument(
-      '-c', '--count', type=int, default=5,
+      '-c', '--count', type=int, default=1,
       help='Number of times to run inference')
 
     parser.add_argument(
