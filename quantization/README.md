@@ -74,9 +74,45 @@ docker build -t tflite .
 Note this image builds on the Nvida  nvcr.io/nvidia/l4t-tensorflow:r32.4.3-tf2.2-py image and may take some time to download.
 Start the container with the command `docker run -it --rm --runtime nvidia --network host tflite bash`.
 
-Now run the script `tf2.py`.  This script uses TensforFlow to classify the grace_hopper.jpg file.  For this example, we'll use the model EfficientNet-B1.
+Now run the script `tf2.py`.  This script uses TensforFlow to classify the grace_hopper.jpg file.  For this example, we'll use the a MobileNetV1 model.
 ```
-python3 tf2.py -m https://tfhub.dev/tensorflow/efficientnet/b1/classification/1 -i images/grace_hopper.jpg --height 240 -w 240
+python3 tf2.py -m https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/classification/4 -i images/grace_hopper.jpg --height 224 -w 224
+```
+with a result that will be similar to
+```
+military uniform: 0.92609
+average(sec):0.15,fps:6.70
 ```
 
+Now run the TFLite version with the command `python3 lite.py --model models/mobilenet_v1_1.0_224_quant.tflite --labels models/labels_mobilenet_quant_v1_224.txt -i images/grace_hopper.jpg`
+
+What where your results?  Was the inference any faster?  Did it run faster?
+
+Type `exit` to shutdown your container.
+
 ## Part 3: Jetson Inference
+
+This last section demonstrates the Jetson Infence project, something worth looking at in depth. See https://github.com/dusty-nv/jetson-inference.
+Change to the jetson directory under quantization and build the docker image:
+```
+docker build -t ji .
+```
+And start a container when complete.
+```
+docker run -it --rm --runtime nvidia --network host ji bash
+```
+Now run the test script
+```
+python3 image-test.py --network=inception-v4 data/images/grace_hopper.jpg 
+```
+The first run will take a while as it will convert the InceptionV4 model into a TensorRT one.  Unlike part 1, the orginal model is not a TensorFlow based one but rather a caffemodel.  If you look in the directory `data/networks/Inception-v4` you'll see both the orginal model, Inception-v4.caffemodel, and the converted one, Inception-v4.caffemodel.1.1.7103.GPU.FP16.engine. What is the difference in size?
+
+Run `python3 image-test.py --network=inception-v4 data/images/grace_hopper.jpg` a second time and you should see results similar to 
+```
+average(sec):0.01,fps:81.18
+```
+
+Type `exit` to shutdown your container.
+
+
+So what did you learn?
