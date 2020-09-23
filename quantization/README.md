@@ -103,14 +103,17 @@ docker run -it --rm --runtime nvidia --network host ji bash
 ```
 Now run the test script
 ```
-python3 image-test.py --network=inception-v4 data/images/grace_hopper.jpg 
+python3 image-test.py data/images/grace_hopper.jpg 
 ```
-The first run will take a while as it will convert the InceptionV4 model into a TensorRT one.  Unlike part 1, the orginal model is not a TensorFlow based one but rather a caffemodel.  If you look in the directory `data/networks/Inception-v4` you'll see both the orginal model, Inception-v4.caffemodel, and the converted one, Inception-v4.caffemodel.1.1.7103.GPU.FP16.engine. What is the difference in size?
+The first run will take a while as it will convert the GoogleNet model into a TensorRT one.  Unlike part 1, the orginal model is not a TensorFlow based one but rather a caffemodel.  If you look in the directory `data/networks` you'll see both the orginal model, bvlc_googlenet.caffemodel, and the converted one, bvlc_googlenet.caffemodel.1.1.7103.GPU.FP16.engine. What is the difference in size?
 
-Run `python3 image-test.py --network=inception-v4 data/images/grace_hopper.jpg` a second time and you should see results similar to 
+Run `python3 image-test.py data/images/grace_hopper.jpg` a second time and you should see results similar to 
 ```
-average(sec):0.01,fps:81.18
+image is recognized as 'military uniform' (class #652) with 85.107422% confidence
+average(sec):0.00,fps:315.12
 ```
+Optional, you may run using the Inception4 network via the command `python3 image-test.py --network=inception-v4 data/images/grace_hopper.jpg`.  What are your results?  What is the size of the Inception4 model before and after?
+
 
 Type `exit` to shutdown your container.
 
