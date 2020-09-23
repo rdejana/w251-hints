@@ -6,6 +6,11 @@ RUN wget --show-progress --progress=bar:force:noscroll --no-check-certificate ht
 RUN tar xvf Inception-v4.tar.gz -C data/networks
 RUN rm Inception-v4.tar.gz
 
+RUN wget --show-progress --progress=bar:force:noscroll --no-check-certificate https://nvidia.box.com/shared/static/at8b1105ww1c5h7p30j5ko8qfnxrs0eg.caffemodel -O bvlc_googlenet.caffemodel
+
+RUN mv bvlc_googlenet.caffemodel data/networks
+
+
 COPY image-test.py ./
 RUN chmod 700 image-test.py
 
