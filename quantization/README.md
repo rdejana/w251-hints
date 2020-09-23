@@ -76,7 +76,7 @@ Start the container with the command `docker run -it --rm --runtime nvidia --net
 
 Now run the script `tf2.py`.  This script uses TensforFlow to classify the grace_hopper.jpg file.  For this example, we'll use the model EfficientNet-B1.
 ```
-python3 tf2.py -m https://tfhub.dev/tensorflow/efficientnet/b1/classification/1 -i images/grace_hopper.jpg -c 20
+python3 tf2.py -m https://tfhub.dev/tensorflow/efficientnet/b1/classification/1 -i images/grace_hopper.jpg --height 240 -w 240
 ```
 
 ## Part 3: Jetson Inference
