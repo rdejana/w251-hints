@@ -79,6 +79,7 @@ while True:
             times.append(delta)
             mean_delta = np.array(times).mean()
         fps = 1 / mean_delta
+        print("image is recognized as '{:s}' (class #{:d}) with {:f}% confidence".format(class_desc, class_id, confidence * 100))
         print('average(sec):{:.2f},fps:{:.2f}'.format(mean_delta, fps))
 
 
