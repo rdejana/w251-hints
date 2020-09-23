@@ -92,7 +92,7 @@ Type `exit` to shutdown your container.
 
 ## Part 3: Jetson Inference
 
-This last section demonstrates the Jetson Infence project, something worth looking at in depth. See https://github.com/dusty-nv/jetson-inference.
+This last section demonstrates the Jetson Infence project, something worth looking at in depth. See https://github.com/dusty-nv/jetson-inference.  If you have any issues downloading from box, please see the mirror documented in the jetson-inference repo.
 Change to the jetson directory under quantization and build the docker image:
 ```
 docker build -t ji .
