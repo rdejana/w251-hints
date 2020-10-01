@@ -16,5 +16,5 @@ pip3 install torch torchvision numpy pillow opencv-python
 ### Running
 Run the command:
 ```
-python3 cam.py
+python3 dl_cam.py
 ```
