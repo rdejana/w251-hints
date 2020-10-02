@@ -29,7 +29,9 @@ There are three Python files to run.
 - stereo.py: runs both (not optizmized though...)
 
 Start with haarcascade_cam.py and change your orientation of the camea (move left, right, up, down, rotate etc).  Hows does the face detection work?
+
 Now try with dl_cam.py and repeat your testing.  How do your results change, if they do.
+
 If you like you can try stereo.py.  You'll need to move the two windows so they are side by side (this may 'pause' the execution for a moment or two) and repeat your tests.
 
 ```
