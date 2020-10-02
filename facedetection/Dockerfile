@@ -21,4 +21,4 @@ COPY *.xml ./
 COPY *.pth ./
 COPY *.py ./
 COPY *.npy ./
-RUN chmod 700 *
+RUN chmod 700 *.*
