@@ -11,7 +11,9 @@ Run the following commands to install the required packages on your NX.  For oth
 ```
 apt-get update
 apt-get install python-opencv python3-dev python3-pip
-pip3 install torch torchvision numpy pillow
+cd root
+git clone https://github.com/rdejana/w251/
+cd w251/facedetection
 ```
 
 
