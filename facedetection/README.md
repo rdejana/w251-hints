@@ -7,8 +7,9 @@
 BlazeFace is a fast, light-weight face detector from Google Research that builds on Single Shot MultiBox Detector (SSD).  This example uses the work done at https://github.com/hollance/BlazeFace-PyTorch to convert from a TFLite model to a PyTorch compatable one.  See https://github.com/hollance/BlazeFace-PyTorch for additional details.
 
 ### Installing
-Run the following command to install the required packages.  
+Run the following commands to install the required packages.  
 ```
+apt-get install -y cmake
 pip3 install torch torchvision numpy pillow opencv-python scikit-build
 ```
 
