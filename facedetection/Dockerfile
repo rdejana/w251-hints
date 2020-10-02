@@ -20,3 +20,4 @@ COPY *.xml ./
 COPY *.pth ./
 COPY *.py ./
 COPY *.npy ./
+RUN chmod a+rw *
