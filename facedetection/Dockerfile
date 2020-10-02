@@ -16,7 +16,7 @@ RUN apt install -y nvidia-opencv python3-dev python3-pip
 RUN pip3 install Cython  &&  pip3 install numpy
 
 WORKDIR /root
-COY *.xml ./
+COPY *.xml ./
 COPY *.pth ./
 COPY *.py ./
 COPY *.npy ./
