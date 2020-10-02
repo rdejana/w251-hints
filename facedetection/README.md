@@ -23,3 +23,5 @@ Run the command:
 ```
 python3 dl_cam.py
 ```
+
+Press 'q' to stop.
