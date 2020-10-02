@@ -18,6 +18,7 @@ cd w251/facedetection
 
 
 ### Running
+The scripts use the cameral device 0 by default; depending on your configuration, you may need to update.
 Run the command:
 ```
 python3 dl_cam.py
