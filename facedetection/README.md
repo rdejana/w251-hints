@@ -9,7 +9,7 @@ BlazeFace is a fast, light-weight face detector from Google Research that builds
 ### Installing
 Run the following command to install the required packages.  
 ```
-pip3 install torch torchvision numpy pillow opencv-python
+pip3 install torch torchvision numpy pillow opencv-python scikit-build
 ```
 
 
