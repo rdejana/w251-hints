@@ -9,6 +9,7 @@ BlazeFace is a fast, light-weight face detector from Google Research that builds
 ### Installing
 Run the following commands to install the required packages on your NX.  For other OS's, you'll need to adjust as needed.  
 ```
+apt-get update
 apt-get install python-opencv python3-dev python3-pip
 pip3 install torch torchvision numpy pillow
 ```
