@@ -5,6 +5,7 @@ RUN apt-get install -y \
     ca-certificates \
     curl vim-tiny \
     gnupg-agent \
+    vim \
     software-properties-common
 RUN apt-key adv --fetch-key https://repo.download.nvidia.com/jetson/jetson-ota-public.asc
 ## This matches the nx2 and the current jetpack version
